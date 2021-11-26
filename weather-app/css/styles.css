@@ -1,0 +1,15 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap');
+
+body {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.custom-card {
+    box-shadow: rgba(168, 168, 170, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    padding: 4%;
+}
+
+.card-title-padding {
+    padding-right: 3%;
+}
