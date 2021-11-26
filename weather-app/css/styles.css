@@ -12,10 +12,17 @@ nav {
   padding-left: 3%;
 }
 
+.custom-card:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(0,0,0,.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+
 .custom-card {
   box-shadow: rgba(168, 168, 170, 0.2) 0px 8px 24px;
   border-radius: 10px;
   padding: 4%;
+  transition: .3s transform cubic-bezier(.155,1.105,.295,1.12),.3s box-shadow,.3s -webkit-transform cubic-bezier(.155,1.105,.295,1.12);
 }
 
 .card-title-padding {
@@ -44,7 +51,6 @@ nav {
   bottom: 1rem;
   z-index: 10;
 }
-
 
 .carousel-item {
   height: 30rem;
