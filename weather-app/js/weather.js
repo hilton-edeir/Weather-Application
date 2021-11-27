@@ -3,6 +3,8 @@ const temperatureElement = document.querySelector('#temperature-value')
 const descriptionElement = document.querySelector('#weather-description')
 const locationElement = document.querySelector('#location')
 const notificationElement = document.querySelector('#notification')
+const humidityElement = document.querySelector('#weather-humidity')
+const search_city = document.querySelector('#search-city')
 
 
 const weather = {}
@@ -30,7 +32,6 @@ function setPosition(position) {
     getWeather(latitude, longitude)
 }
 
-
 function getWeather(latitude, longitude) {
     let api = `http://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${key}`
     
@@ -44,21 +45,43 @@ function getWeather(latitude, longitude) {
         weather.iconId = data.weather[0].icon
         weather.city = data.name
         weather.country = data.sys.country
+        weather.humidity = data.main.humidity
     })
     .then(function(){
         displayWeather();
     })
 }
 
-
 function displayWeather(){
     iconElement.innerHTML = `<img src="img/openweather-icons/${weather.iconId}.png" class="img-fluid" alt="icon">`
     temperatureElement.innerHTML = `${weather.temperature.value}`
     descriptionElement.innerHTML = weather.description
     locationElement.innerHTML = `${weather.city}, ${weather.country}`
+    humidityElement.innerHTML = `${weather.humidity}`
 }
 
 function showError(error){
     notificationElement.style.display = 'block'
-    notificationElement.innerHTML = ` ${error.message}`
+    notificationElement.innerHTML = `<div class="alert alert-danger" role="alert">${error.message}!</div>`
 }
+
+search_city.addEventListener('input', function () {
+
+    let api = `http://api.openweathermap.org/data/2.5/weather?q=${this.value}&appid=${key}`
+    
+    fetch(api).then(function(response) {
+        let data = response.json()
+        return data
+    })
+    .then(function(data){
+        weather.temperature.value = Math.floor(data.main.temp - KELVIN)
+        weather.description = data.weather[0].description
+        weather.iconId = data.weather[0].icon
+        weather.city = data.name
+        weather.country = data.sys.country
+        weather.humidity = data.main.humidity
+    })
+    .then(function(){
+        displayWeather();
+    })
+});
