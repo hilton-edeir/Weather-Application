@@ -69,11 +69,10 @@ nav {
   height: 30rem;
 }
 
-#time, #date {
-  font-weight: 200;
-  letter-spacing: 0.05rem;
-}
-
 #weather-description {
   text-transform: capitalize;
+}
+
+.featurette-divider {
+  margin: 5rem 0;
 }
