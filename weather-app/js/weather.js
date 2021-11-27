@@ -1,0 +1,5 @@
+const iconElement = document.querySelector('#icon-temperature')
+const temperatureElement = document.querySelector('#temperature-value')
+const descriptionElement = document.querySelector('')
+const locationElement = document.querySelector('#location')
+const notificationElement = document.querySelector('')
