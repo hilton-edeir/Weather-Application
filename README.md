@@ -1,5 +1,5 @@
 # Weather Application
-An app created to get information about weather forecast.
+An app created to get information about weather forecasts.
 It used Javascript and weather API
 
 * Winter vector created by pch.vector - [Freepik](https://www.freepik.com/vectors/winter).
